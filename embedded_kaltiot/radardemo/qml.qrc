@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>KStyles.qml</file>
+        <file>qmldir</file>
+        <file>KText.qml</file>
+        <file>KButton.qml</file>
+    </qresource>
+</RCC>

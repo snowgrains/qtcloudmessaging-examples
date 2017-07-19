@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "738753271745",
+    "firebase_url": "https://qtdemo-dfc13.firebaseio.com",
+    "project_id": "qtdemo-dfc13",
+    "storage_bucket": "qtdemo-dfc13.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738753271745:android:f0c3d62393021420",
+        "android_client_info": {
+          "package_name": "com.snowgrains.kaltiot.qtgooglecloudmsg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "738753271745-rseotqhr7s5h22slrtek1i970gg0ju8n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDi7-pgSQfEuzdmyW9Cx7V64Ii7VlNaMhU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

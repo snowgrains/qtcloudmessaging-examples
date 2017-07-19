@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/available_sensor.png</file>
+        <file>images/background.png</file>
+        <file>images/car.png</file>
+        <file>images/icon_radar.png</file>
+        <file>images/radar_wave.png</file>
+        <file>images/background.jpg</file>
+    </qresource>
+</RCC>
