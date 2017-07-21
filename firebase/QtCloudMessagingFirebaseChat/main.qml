@@ -181,6 +181,7 @@ Window {
         onMessageReceived:{
             if ( edit.text === "sending...") edit.text = "";
             console.log(message)
+
             appendMessage(message)
         }
     }

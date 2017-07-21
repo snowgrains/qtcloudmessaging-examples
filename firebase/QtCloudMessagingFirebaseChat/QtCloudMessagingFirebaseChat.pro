@@ -47,9 +47,9 @@ isEmpty(ENV_FIREBASE_SDK) {
 
 INCLUDEPATH += $${ENV_FIREBASE_SDK}/include
 
-android:{
-    QT += androidextras
-
+android {
+    message ("ANDROID Selected: Project dir: $$PWD, build dir: $$OUT_PWD")
+    ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
     DISTFILES += \
         android/AndroidManifest.xml \
         android/gradle/wrapper/gradle-wrapper.jar \
@@ -62,50 +62,31 @@ android:{
         android/src/com/snowgrains/kaltiot/qtgooglecloudmsg/LoggingUtils.java \
         android/google-services.json
 
-    ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
-
-    #FIREBASE LIBRARY FOR CLOUD MESSAGING
-    LIBS += $${ENV_FIREBASE_SDK}/libs/android/armeabi-v7a/gnustl/libmessaging.a
-    LIBS += $${ENV_FIREBASE_SDK}/libs/android/armeabi-v7a/gnustl/libapp.a
-
     OTHER_FILES+= $$PWD/android/src/com/snowgrains/kaltiot/qtgooglecloudmsg/TestappNativeActivity.java \
                     $$PWD/android/src/com/snowgrains/kaltiot/qtgooglecloudmsg/LoggingUtils.java
 
+}
+
 contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
-
-    for(deploymentfolder, DEPLOYMENTFOLDERS) {
-        item = item$${deploymentfolder}
-        itemfiles = $${item}.files
-        $$itemfiles = $$eval($${deploymentfolder}.source)
-        itempath = $${item}.path
-        $$itempath = /assets/$$eval($${deploymentfolder}.target)
-        export($$itemfiles)
-        export($$itempath)
-        INSTALLS += $$item
-    }
-
-
-    export (INSTALLS)
-
-}
-
     ANDROID_EXTRA_LIBS = \
-        $$PWD/android/libcrypto.so \
-        $$PWD/android/libssl.so
-
-
+        $$PWD/android/lib/libssl.so \
+        $$PWD/android/lib/libcrypto.so
 }
-
-macos:{
-    #FIREBASE DUMMY LIBRARY FOR DARWIN
+macx:{
+    #FIREBASE DUMMY LIBARY FOR DARWIN
     QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.12
     LIBS += -F$${ENV_FIREBASE_SDK}/frameworks/darwin \
       -framework firebase \
       -framework firebase_messaging
-    QMAKE_INFO_PLIST +=$$PWD/GoogleService-Info.plist
+    QMAKE_INFO_PLIST +=$$PWD/ios/GoogleService-Info.plist
 
 }
+windows: {
+    #FIREBASE LIBARY STUBS FOR CLOUD MESSAGING
+    LIBS += $${ENV_FIREBASE_SDK}/libs/windows/libmessaging.a
+    LIBS += $${ENV_FIREBASE_SDK}/libs/windows/libapp.a
 
+}
 ios:{
     # FIREBASE IOS LIBRARY
     # NOTE -

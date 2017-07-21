@@ -10,3 +10,5 @@ mkspecs*
 .moc
 .pch
 .obj
+gradle.properties*
+local.properties*

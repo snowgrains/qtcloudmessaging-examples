@@ -18,7 +18,7 @@ void qtcloudmessagingdemo::startService(){
     //! But if you do, make sure it is inside compiled C file or if you are doing a server side implementation with C++ & Qt.
     //!
     //! SERVER_API_KEY Is needed in this demo to be able to send topic messages from the client without Firebase application server.
-    params["SERVER_API_KEY"] = "AAAArAEgV8E:APA91bFYjfbMBLZ6xIYcTVwNISwxkCJbA7T1qmcoJjRbcQaYuNt1N5t7r3hrmJFKirG-VBgkQWBnNBgcHv5c8gq7zpoIguSZoVL5PCffXTx5iueVVXEKx6750lfx1no1HFpWHKR_8H08";
+    params["SERVER_API_KEY"] = "";
 
     //! Registering the Google firebase service component.
     m_qtCM->qRegisterProvider("GoogleFireBase",m_firebaseService,&params);
