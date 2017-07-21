@@ -1,0 +1,100 @@
+buildscript {
+    repositories {
+            jcenter()
+            mavenLocal()
+
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath 'com.google.gms:google-services:3.1.0'
+    }
+}
+
+allprojects {
+    repositories {
+            jcenter()
+
+            mavenLocal()
+
+    }
+
+}
+project.ext {
+  // Configure the Firebase C++ SDK location.
+  firebase_cpp_sdk_dir = System.getProperty('firebase_cpp_sdk.dir')
+  if (firebase_cpp_sdk_dir == null || firebase_cpp_sdk_dir.isEmpty()) {
+    firebase_cpp_sdk_dir = System.getenv('GOOGLE_FIREBASE_SDK')
+    if (firebase_cpp_sdk_dir == null || firebase_cpp_sdk_dir.isEmpty()) {
+      if ((new File('firebase_cpp_sdk')).exists()) {
+        firebase_cpp_sdk_dir = 'firebase_cpp_sdk'
+      } else {
+        throw new StopActionException(
+          'firebase_cpp_sdk.dir property or the GOOGLE_FIREBASE_SDK ' +
+          'environment variable must be set to reference the Firebase C++ ' +
+          'SDK install directory.  This is used to configure static library ' +
+          'and C/C++ include paths for the SDK.')
+      }
+    }
+  }
+  if (!(new File(firebase_cpp_sdk_dir)).exists()) {
+    throw new StopActionException(
+      sprintf('Firebase C++ SDK directory %s does not exist',
+              firebase_cpp_sdk_dir))
+  }
+
+}
+apply plugin: 'com.android.application'
+
+    dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+      }
+
+android {
+    /*******************************************************
+     * The following variables:
+     * - androidBuildToolsVersion,
+     * - androidCompileSdkVersion
+     * - qt5AndroidDir - holds the path to qt android files
+     *                   needed to build any Qt application
+     *                   on Android.
+     *
+     * are defined in gradle.properties file. This file is
+     * updated by QtCreator and androiddeployqt tools.
+     * Changing them manually might break the compilation!
+     *******************************************************/
+
+    compileSdkVersion androidCompileSdkVersion.toInteger()
+
+    buildToolsVersion androidBuildToolsVersion
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = [qt5AndroidDir + '/src', 'src', 'java']
+            aidl.srcDirs = [qt5AndroidDir + '/src', 'src', 'aidl']
+            res.srcDirs = [qt5AndroidDir + '/res', 'res']
+            resources.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            assets.srcDirs = ['assets']
+            jniLibs.srcDirs = ['libs']
+       }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+
+}
+repositories {
+  flatDir {
+    dirs project.ext.firebase_cpp_sdk_dir + "/libs/android"
+  }
+}
+dependencies {
+  compile 'com.google.firebase.messaging.cpp:firebase_messaging_cpp@aar'
+  compile 'com.google.firebase:firebase-messaging:11.0.0'
+  compile 'com.google.android.gms:play-services-base:11.0.0'
+}
+apply plugin: 'com.google.gms.google-services'
