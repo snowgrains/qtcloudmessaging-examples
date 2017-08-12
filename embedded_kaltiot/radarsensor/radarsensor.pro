@@ -32,6 +32,7 @@ isEmpty(ENV_KALTIOT_SDK) {
 
 INCLUDEPATH += $$(KALTIOT_SDK)/src
 INCLUDEPATH += $${KALTIOT_SDK}/src
+INCLUDEPATH += $${KALTIOT_SDK}
 
 HEADERS += \
     kaltiotdemo.h

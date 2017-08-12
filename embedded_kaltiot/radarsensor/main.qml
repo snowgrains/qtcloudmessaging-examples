@@ -229,7 +229,7 @@ Window {
 
         }
         onClientTokenReceived:  {
-            rid = m_uuid;
+            rid = token;
             console.log("RID:"+rid)
 
         }
@@ -240,7 +240,7 @@ Window {
         var payload_array = [{"payload_type":"STRING","payload": encodeURI(JSON.stringify(payload))}]
         var p = "payload="+JSON.stringify(payload_array);
         console.log(p);
-        m_pushServices.qSendMessage(p,"KaltiotService","","","RadarChannel");
+        m_pushServices.sendMessage(p,"KaltiotService","","","RadarChannel");
 
     }
     function send_deregistration() {
@@ -250,7 +250,7 @@ Window {
         var payload_array = [{"payload_type":"STRING","payload": encodeURI(JSON.stringify(payload))}]
         var p = "payload="+JSON.stringify(payload_array);
         console.log(p);
-        m_pushServices.qSendMessage(p,"KaltiotService","","","RadarChannel");
+        m_pushServices.sendMessage(p,"KaltiotService","","","RadarChannel");
 
     }
     function send_uninstall() {
@@ -261,7 +261,7 @@ Window {
         var payload_array = [{"payload_type":"STRING","payload": encodeURI(JSON.stringify(payload))}]
         var p = "payload="+JSON.stringify(payload_array);
         console.log(p);
-        m_pushServices.qSendMessage(p,"KaltiotService","","","RadarChannel");
+        m_pushServices.sendMessage(p,"KaltiotService","","","RadarChannel");
 
     }
     function send_collision() {
@@ -272,7 +272,7 @@ Window {
         var payload_array = [{"payload_type":"STRING","payload": encodeURI(JSON.stringify(payload))}]
         var p = "payload="+JSON.stringify(payload_array);
         console.log(p);
-        m_pushServices.qSendMessage(p,"KaltiotService","","","RadarChannel");
+        m_pushServices.sendMessage(p,"KaltiotService","","","RadarChannel");
 
     }
     function send_malfunction() {
@@ -283,7 +283,7 @@ Window {
         var payload_array = [{"payload_type":"STRING","payload": encodeURI(JSON.stringify(payload))}]
         var p = "payload="+JSON.stringify(payload_array);
         console.log(p);
-        m_pushServices.qSendMessage(p,"KaltiotService","","","RadarChannel");
+        m_pushServices.sendMessage(p,"KaltiotService","","","RadarChannel");
 
     }
 
