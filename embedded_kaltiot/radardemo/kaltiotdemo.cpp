@@ -12,7 +12,7 @@ void KaltiotDemo::startService(){
 
     QVariantMap paramss;
     paramss["API_KEY"] = "8riksUXIIbkQmG4Q1jeG5AniLjkd2xxhtGq8w15h2jMzQ3fpvwEcwUO2dQwE9%2BrP7ofGIRQheZgC9RyxeoDNq0fp4tpjSntLCYr05Yanb9I%3D";
-    m_pushServices->qRegisterProvider("KaltiotService",m_kaltiotPushService,&paramss);
+    m_pushServices->registerProvider("KaltiotService",m_kaltiotPushService,paramss);
 
     connect(m_pushServices, SIGNAL(messageReceived(QString,QString,QString)), this, SIGNAL(messageReceived(QString,QString,QString)));
 
@@ -24,12 +24,12 @@ void KaltiotDemo::startService(){
     QVariantList channels;
     channels.append("RadarChannel");
     params1["channels"] = channels;
-    m_pushServices->qConnectClient("KaltiotService","RadarConsole",params1);
+    m_pushServices->connectClient("KaltiotService","RadarConsole",params1);
 }
 
 
 void KaltiotDemo::closeAll(){
-    m_pushServices->qDeRegisterProvider("KaltiotService");
+    m_pushServices->deRegisterProvider("KaltiotService");
 }
 
 

@@ -93,7 +93,7 @@ ios:{
     # Linking firebase libraries straight does not work - it gives undefined symbols
     # therefore Cocoapods are needed and qmake generated xcode project file needs modification
     # See readme.txt
-    TARGET= qtcloudmessagingfirebasechat
+    TARGET= QtCloudMessagingFirebaseChat
     QMAKE_INFO_PLIST =$$PWD/ios/Info.plist
     OTHER_FILES+= $$PWD/ios/Info.plist \
                   $$PWD/Podfile

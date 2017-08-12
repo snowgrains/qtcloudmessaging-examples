@@ -15,9 +15,9 @@ int main(int argc, char *argv[])
     mdemo->startService();
 
     // these are needed for keeping the received RID in memory after restart (in Android)
-    QCoreApplication::setOrganizationName("Kaltiot");
-    QCoreApplication::setOrganizationDomain("kaltiot.com");
-    QCoreApplication::setApplicationName("RadarDemo");
+    QCoreApplication::setOrganizationName("Kaltiot2");
+    QCoreApplication::setOrganizationDomain("kaltiot2.com");
+    QCoreApplication::setApplicationName("RadarDemo2");
 
     engine.rootContext()->setContextProperty("m_demo", mdemo);
     engine.rootContext()->setContextProperty("m_pushServices", mdemo->getService());

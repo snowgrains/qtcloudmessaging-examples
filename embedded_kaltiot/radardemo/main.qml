@@ -354,7 +354,7 @@ Window {
                 var payload=[{"payload_type":"STRING","payload":"{\"command\":\"ADD_RADAR\",\"installed\": false, \"radarColor\": \"#252525\", \"name\": \"Radar #1\", \"id\":\"0001\" }"}]
                 console.log(JSON.stringify(payload));
                 var p = "payload="+JSON.stringify(payload);
-                m_pushServices.qSendMessage(p,"KaltiotService","","","RadarChannel");
+                m_pushServices.sendMessage(p,"KaltiotService","","","RadarChannel");
 
             }
         }
@@ -419,7 +419,7 @@ Window {
         var payload_array = [{"rid":data.id,"payload_type":"STRING","payload": encodeURI(JSON.stringify(payload))}]
         var p = "payload="+JSON.stringify(payload_array);
         console.log(p);
-        m_pushServices.qSendMessage(p,"KaltiotService",data.id,"","RadarChannel");
+        m_pushServices.sendMessage(p,"KaltiotService","",data.id,"use_rest");
     }
 
     // Broadcast power off for all
@@ -428,7 +428,7 @@ Window {
         var payload_array = [{"payload_type":"STRING","payload": encodeURI(JSON.stringify(payload))}]
         var p = "payload="+JSON.stringify(payload_array);
 
-        m_pushServices.qSendMessage(p,"KaltiotService","","","RadarChannel");
+        m_pushServices.sendMessage(p,"KaltiotService","","","RadarChannel");
     }
 
     Connections {
@@ -536,7 +536,7 @@ Window {
 
         }
         onClientTokenReceived: {
-            rid = m_uuid;
+            rid = token;
             console.log("RID:"+rid)
 
         }
