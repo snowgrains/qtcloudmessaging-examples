@@ -21,16 +21,16 @@ void qtcloudmessagingdemo::startService(){
     params["SERVER_API_KEY"] = "";
 
     //! Registering the Google firebase service component.
-    m_qtCM->qRegisterProvider("GoogleFireBase",m_firebaseService,&params);
+    m_qtCM->registerProvider("GoogleFireBase",m_firebaseService,params);
 
     /*! Connected client is needed for mobile device.
       \param Service name "GoogleFireBase"
       \param Client identifier name to be used inside the demo application
       \param Parameters for the client. Not used at this point.
     */
-    m_qtCM->qConnectClient("GoogleFireBase","MobileClient", QVariantMap());
+    m_qtCM->connectClient("GoogleFireBase","MobileClient", QVariantMap());
 
     //! Automatically subscribe to listen one topic on this demo.
-    m_qtCM->qSubsribeToChannel("ChatRoom","GoogleFireBase","MobileClient");
+    m_qtCM->subsribeToChannel("ChatRoom","GoogleFireBase","MobileClient");
 
 }

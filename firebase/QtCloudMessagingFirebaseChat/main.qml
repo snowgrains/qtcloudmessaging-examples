@@ -160,7 +160,7 @@ Window {
             }
         }
 
-        m_qtcloudmsg.qSendMessage(JSON.stringify(data),"GoogleFireBase","MobileClient","","ChatRoom");
+        m_qtcloudmsg.sendMessage(JSON.stringify(data),"GoogleFireBase","MobileClient","","ChatRoom");
     }
 
 

@@ -44,7 +44,7 @@ void KaltiotDemo::registerClient2(){
     m_pushServices->connectClient("Service1","qtSensorTest2",params2);
 }
 void KaltiotDemo::closeAll(){
-    m_pushServices->deRegisterProvider("KaltiotService");
+    m_pushServices->deregisterProvider("KaltiotService");
 }
 
 

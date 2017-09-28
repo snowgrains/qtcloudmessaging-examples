@@ -29,7 +29,7 @@ void KaltiotDemo::startService(){
 
 
 void KaltiotDemo::closeAll(){
-    m_pushServices->deRegisterProvider("KaltiotService");
+    m_pushServices->deregisterProvider("KaltiotService");
 }
 
 
