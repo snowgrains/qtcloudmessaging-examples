@@ -10,9 +10,9 @@ void KaltiotDemo::startService(){
     m_pushServices = new QCloudMessaging();
     m_kaltiotPushService = new QCloudMessagingEmbeddedKaltiotProvider();
 
-    QVariantMap paramss;
-    paramss["API_KEY"] = "8riksUXIIbkQmG4Q1jeG5AniLjkd2xxhtGq8w15h2jMzQ3fpvwEcwUO2dQwE9%2BrP7ofGIRQheZgC9RyxeoDNq0fp4tpjSntLCYr05Yanb9I%3D";
-    m_pushServices->registerProvider("KaltiotService",m_kaltiotPushService,paramss);
+    QVariantMap params;
+    params["API_KEY"] = "<get api key from Kaltiot SDK here>";
+    m_pushServices->registerProvider("KaltiotService",m_kaltiotPushService,params);
 
     connect(m_pushServices, SIGNAL(messageReceived(QString,QString,QString)), this, SIGNAL(messageReceived(QString,QString,QString)));
 
@@ -25,6 +25,7 @@ void KaltiotDemo::startService(){
     channels.append("RadarChannel");
     params1["channels"] = channels;
     m_pushServices->connectClient("KaltiotService","RadarConsole",params1);
+
 }
 
 

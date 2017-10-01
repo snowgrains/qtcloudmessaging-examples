@@ -180,7 +180,7 @@ Window {
     }
 
     Connections {
-        target:started ? m_pushServices : null
+        target: m_pushServices
         ignoreUnknownSignals: true
         onMessageReceived:  {
             console.log("Message received");

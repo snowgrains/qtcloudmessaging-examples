@@ -72,13 +72,12 @@ contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
         $$PWD/android/lib/libssl.so \
         $$PWD/android/lib/libcrypto.so
 }
-macx:{
+macos:{
     #FIREBASE DUMMY LIBARY FOR DARWIN
     QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.12
     LIBS += -F$${ENV_FIREBASE_SDK}/frameworks/darwin \
       -framework firebase \
       -framework firebase_messaging
-    QMAKE_INFO_PLIST +=$$PWD/ios/GoogleService-Info.plist
 
 }
 windows: {

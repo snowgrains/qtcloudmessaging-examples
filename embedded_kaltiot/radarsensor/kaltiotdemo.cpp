@@ -11,8 +11,8 @@ void KaltiotDemo::startService(){
     m_kaltiotPushService = new QCloudMessagingEmbeddedKaltiotProvider();
 
     QVariantMap paramss;
-    paramss["API_KEY"] = "8riksUXIIbkQmG4Q1jeG5AniLjkd2xxhtGq8w15h2jMzQ3fpvwEcwUO2dQwE9%2BrP7ofGIRQheZgC9RyxeoDNq0fp4tpjSntLCYr05Yanb9I%3D";
-    m_pushServices->registerProvider("KaltiotService",m_kaltiotPushService,paramss);
+    paramss["API_KEY"] = "<get your api key from Kaltiot SDK here>";
+    m_pushServices->registerProvider("KaltiotService",m_kaltiotPushService, paramss);
 
     connect(m_pushServices, SIGNAL(messageReceived(QString,QString,QString)), this, SIGNAL(pushMessageReceived(QString,QString,QString)));
 
