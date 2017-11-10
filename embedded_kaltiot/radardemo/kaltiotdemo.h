@@ -4,6 +4,7 @@
 #define KALTIOTDEMO_H
 
 #include <QObject>
+#include <QByteArray>
 #include <QtCloudMessagingEmbeddedKaltiot>
 
 class KaltiotDemo : public QObject
@@ -16,7 +17,7 @@ public:
     Q_INVOKABLE void closeAll();
     QCloudMessaging *getService() { return m_pushServices; }
 signals:
-    void messageReceived(QString serviceID, QString clientID, QString message);
+    void messageReceived(QString serviceID, QString clientID, QByteArray message);
 public slots:
 private:
     QCloudMessaging *m_pushServices;

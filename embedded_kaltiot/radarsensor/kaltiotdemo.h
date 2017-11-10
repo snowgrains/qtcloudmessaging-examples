@@ -17,7 +17,7 @@ public:
     Q_INVOKABLE void closeAll();
     QCloudMessaging *getService() { return m_pushServices; }
 signals:
-    void pushMessageReceived(QString serviceID, QString clientID, QString message);
+    void pushMessageReceived(QString serviceID, QString clientID, QByteArray message);
     void clientUuidReceived(QString m_uuid);
 public slots:
 private:

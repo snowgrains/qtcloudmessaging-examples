@@ -31,6 +31,6 @@ void qtcloudmessagingdemo::startService(){
     m_qtCM->connectClient("GoogleFireBase","MobileClient", QVariantMap());
 
     //! Automatically subscribe to listen one topic on this demo.
-    m_qtCM->subsribeToChannel("ChatRoom","GoogleFireBase","MobileClient");
+    m_qtCM->subscribeToChannel("ChatRoom","GoogleFireBase","MobileClient");
 
 }
